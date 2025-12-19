@@ -13,7 +13,6 @@
             word-break: keep-all;
         }
 
-        /* 내 컴퓨터의 '굴패각 벽돌.jpg' 파일을 배경으로 설정 */
         .hero-section {
             height: 60vh;
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('굴패각 벽돌.jpg');
@@ -52,16 +51,10 @@
             border-bottom: 2px solid #3b82f6;
         }
 
-        .table-title {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 12px;
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
         .badge { padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
+        
+        /* 추가된 애니메이션 효과 */
+        .value-card:hover { transform: translateY(-5px); transition: all 0.3s; }
     </style>
 </head>
 <body class="bg-slate-50">
@@ -72,6 +65,31 @@
             <p class="text-lg md:text-2xl font-medium opacity-90 mb-2">버려진 굴 패각으로 만든 벽돌과 분필, 갯벌의 새로운 숨통이 됩니다.</p>
         </div>
     </header>
+
+    <section class="max-w-6xl mx-auto pt-16 px-4">
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-8 md:p-12 text-white shadow-2xl">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-extrabold mb-4">대한민국 갯벌의 놀라운 가치</h2>
+                    <p class="text-blue-100 text-lg mb-6 leading-relaxed">
+                        우리나라 갯벌의 연간 전체 생태계 서비스 가치는 <span class="text-yellow-300 font-bold text-2xl text-nowrap">약 17.8조 원</span>에 달합니다. 
+                        갯벌은 탄소를 흡수하고 수질을 정화하며, 수많은 생명의 터전이 됩니다.
+                    </p>
+                    <div class="bg-white/10 p-4 rounded-xl border border-white/20">
+                        <p class="text-sm opacity-90">1㎡당 생태계 서비스 가치 : 약 7,000원</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-slate-800 shadow-inner">
+                    <h3 class="text-xl font-bold mb-4 text-blue-600">지금 바로 갯벌을 지켜주세요!</h3>
+                    <p class="text-slate-600 mb-6">단 10,000원의 후원만으로도 약 <span class="font-bold text-slate-900 underline">1.4㎡의 갯벌 보전 효과</span>를 얻을 수 있습니다.</p>
+                    <button onclick="donateAction()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg active:scale-95">
+                        10,000원 후원하고 갯벌 지키기
+                    </button>
+                    <p id="donation-msg" class="mt-4 text-center font-bold text-indigo-600 hidden">🎉 감사합니다! 방금 1㎡의 갯벌을 지키셨습니다!</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="max-w-6xl mx-auto py-16 px-4">
         <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -149,6 +167,13 @@
     </section>
 
     <script>
+        // 후원 버튼 액션 함수
+        function donateAction() {
+            const msg = document.getElementById('donation-msg');
+            msg.classList.remove('hidden');
+            alert("후원해주셔서 감사합니다! 당신은 방금 1㎡의 갯벌을 지키셨습니다.");
+        }
+
         // 모든 수치 데이터 (11/18 ~ 11/26)
         const initialData = {
             "2025-11-18": {
